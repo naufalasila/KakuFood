@@ -12,7 +12,7 @@
             --secondary-color: #911507;
             --accent-color: #911507;
             --dark-color: #313030;
-            --nav-color: #dedb1c;
+            --nav-color: #911507;
             --light-color: #58cbe7;
             --text-color: #333;
             --text-light: #777;
@@ -158,14 +158,14 @@
         .nav-links li a {
             display: block;
             padding: 15px 20px;
-            color: var(--white);
+            color: var(--text-color);
             font-weight: 500;
             transition: var(--transition);
         }
 
         .nav-links li a:hover, 
         .nav-links li a.active {
-            background-color: var(--primary-color);
+            background-color: var(--white);
         }
 
         .hamburger {
@@ -175,13 +175,13 @@
         }
 
         .hamburger i {
-            color: var(--primary-color);
+            color: var(--white);
             font-size: 24px;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('file:///c%3A/Users/LENOVO/OneDrive/Documents/COODINGANKU/tugas%20web%20klp/WhatsApp%20Image%202025-05-21%20at%2001.24.00.jpeg') no-repeat center center/cover;
+            background: linear-gradient(rgba(203, 203, 203, 0), rgba(211, 54, 54, 0.488)), url('bacground.jpg') no-repeat center center/cover;
             height: 400px;
             display: flex;
             align-items: center;
@@ -266,6 +266,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            max-width: 180px; /* Added to limit card width */
+            margin: 0 auto; /* Center cards on mobile */
         }
 
         .product-card:hover {
@@ -275,6 +277,7 @@
 
         .product-card.promo-card {
             grid-column: span 1;
+            max-width: 350px; /* For promo cards */
         }
 
         .product-badge {
@@ -502,7 +505,7 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background-color: var(--dark-color);
+                background-color: var(--white);
                 z-index: 99;
             }
             
@@ -535,10 +538,15 @@
                 font-size: 24px;
             }
 
-            /* Smaller product cards on mobile */
+            /* Modified product cards for mobile */
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
                 gap: 15px;
+            }
+            
+            .product-card {
+                max-width: 100%; /* Allow cards to take full width of their grid cell */
+                width: 100%; /* Ensure consistent width */
             }
             
             .product-card img {
@@ -588,14 +596,225 @@
                 padding: 10px 20px;
             }
             
-            .products-grid, .promo-products {
+            .promo-products {
                 grid-template-columns: 1fr;
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            /* Ensure product cards maintain their size on very small screens */
+            .products-grid {
+                grid-template-columns: repeat(2, minmax(140px, 1fr));
+            }
         }
+       /* Cart Modal Styles */
+.cart-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: var(--transition);
+}
+
+.cart-modal-content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--white);
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.cart-modal.active {
+    display: block;
+}
+
+.cart-modal.active .cart-modal-content {
+    transform: translateX(0);
+}
+
+.cart-modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-modal-header h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.close-cart {
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.close-cart:hover {
+    color: var(--primary-color);
+}
+
+.cart-modal-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-light);
+}
+
+.empty-cart i {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.cart-item {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.quantity-control button {
+    background-color: #f5f5f5;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-control span {
+    margin: 0 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.remove-item {
+    color: var(--text-light);
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.remove-item:hover {
+    color: var(--primary-color);
+}
+
+.cart-modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.checkout-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 576px) {
+    .cart-modal-content {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+/* Toast Notification */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.toast-notification.show {
+    transform: translateX(-50%) translateY(0);
+}
     </style>
 </head>
 <body>
@@ -622,12 +841,13 @@
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Food</a></li>
-                    <li><a href="#minuman">Drinks</a></li>
-                    <li><a href="#">Promo Packages</a></li>
-                    <li><a href="#">Frozen Food</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#" class="active">Beranda</a></li>
+                    <li><a href="#Makanan">Makanan</a></li>
+                    <li><a href="#minuman">Minuman</a></li>
+                    <li><a href="#hemat">Paket Murah</a></li>
+                    <li><a href="#frozen food">Frozen Food</a></li>
+                    <li><a href="#kontak">kontak kami</a></li>
+                    <li><a href="info.html">Tentang Kami</a></li>
                 </ul>
             </div>
         </nav>
@@ -635,9 +855,8 @@
 
     <main class="container">
         <section class="hero">
-            <div class="hero-content">
-                <h2>Authentic Makassar Cuisine Delivered to Your Door</h2>
-                <p>Enjoy the rich flavors of South Sulawesi with our premium selection of foods and drinks</p>
+            <div id="hemat" class="hero-content">
+               
                
             </div>
         </section>
@@ -647,8 +866,8 @@
             <div class="promo-products">
                 <!-- Promo Product 1 -->
                 <div class="product-card promo-card">
-                    <div class="product-badge">HOT DEAL</div>
-                    <img src="../tugas web klp/tebus murah A.jpeg" alt="Family Package">
+                    
+                    <img src="../KakuFood/hemat A.jpeg" alt="Family Package">
                     <div class="product-info">
                         <h2>TEBUS MURAH A</h2>
                         <p class="product-desc">Complete meal for 4-5 people with drinks and dessert</p>
@@ -656,14 +875,14 @@
                             <span class="original-price">Rp 93.700</span>
                             <span class="current-price">Rp 60.000</span>
                         </div>
-                        <button class="add-to-cart">MASUKAN KERANJANG</button>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
                 
                 <!-- Promo Product 2 -->
                 <div class="product-card promo-card">
-                    <div class="product-badge">LIMITED</div>
-                    <img src="../tugas web klp/tebus murah B.jpeg" alt="Weekend Special">
+                    
+                    <img src="../tugas web klp/hemat B.jpeg" alt="Weekend Special">
                     <div class="product-info">
                         <h2>TEBUS MURAH B</h2>
                         <p class="product-desc">Perfect for your weekend gathering with friends</p>
@@ -671,23 +890,37 @@
                             <span class="original-price">Rp 87.700</span>
                             <span class="current-price">Rp 56.000</span>
                         </div>
-                        <button class="add-to-cart">MASUKAN KERANJANG</button>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                 <!-- Promo Product 3 -->
+                <div class="product-card promo-card">
+                    
+                    <img src="../tugas web klp/hemat C.jpg" alt="Weekend Special">
+                    <div id="minuman" class="product-info">
+                        <h2>TEBUS MURAH C</h2>
+                        <p class="product-desc">Perfect for your weekend gathering with friends</p>
+                        <div class="price-container">
+                            <span class="original-price">Rp 87.700</span>
+                            <span class="current-price">Rp 57.000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="minuman" class="category-section">
-            <h2 class="section-title">Minuman</h2>
+        <section  class="category-section">
+            <h2 class="section-title">MINUMAN</h2>
             <div class="products-grid">
                 <!-- Drink 1 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Es Pisang Ijo">
+                    <img src="../tugas web klp/Thai Tea.png" alt="Thai Teao">
                     <div class="product-info">
-                        <h3>Es Pisang Ijo</h3>
-                        <p class="product-desc">Traditional Makassar banana dessert drink</p>
+                        <h3>Thai Tea</h3>
+                        <p class="product-desc">Manis creamy, aroma khas teh Thailand.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 25,000</span>
+                            <span class="current-price">Rp 14,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -695,12 +928,12 @@
                 
                 <!-- Drink 2 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Es Cincau">
+                    <img src="../tugas web klp/green tea.png" alt="Green tea">
                     <div class="product-info">
-                        <h3>Es Cincau Makassar</h3>
-                        <p class="product-desc">Grass jelly drink with coconut milk and palm sugar</p>
+                        <h3>Green Tea</h3>
+                        <p class="product-desc">Segar dan lembut, dengan sentuhan matcha.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 20,000</span>
+                            <span class="current-price">Rp 14,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -708,10 +941,10 @@
                 
                 <!-- Drink 3 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1502747220144-84648648547e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Es Teller">
+                    <img src="../tugas web klp/es kopi.png" alt="Es kopi">
                     <div class="product-info">
-                        <h3>Es Teller</h3>
-                        <p class="product-desc">Mixed fruits with coconut milk and syrup</p>
+                        <h3>Es Kopi Aren</h3>
+                        <p class="product-desc">Kopi susu kekinian dengan gula aren.</p>
                         <div class="price-container">
                             <span class="current-price">Rp 22,000</span>
                         </div>
@@ -721,54 +954,103 @@
                 
                 <!-- Drink 4 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Es Sirup Markisa">
+                    <img src="../tugas web klp/Dark choco.png" alt="Dark Choco">
                     <div class="product-info">
-                        <h3>Es Sirup Markisa</h3>
-                        <p class="product-desc">Passion fruit syrup drink, refreshing</p>
+                        <h3>Dark Choco</h3>
+                        <p class="product-desc">Cokelat pekat, dingin dan nyegerin.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 18,000</span>
+                            <span class="current-price">Rp 14,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
                 <!-- Drink 5 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Es Cincau">
+                    <img src="../tugas web klp/lemonade.png" alt="Lemonade">
                     <div class="product-info">
-                        <h3>Es Cincau Makassar</h3>
-                        <p class="product-desc">Grass jelly drink with coconut milk and palm sugar</p>
+                        <h3>Lemonade</h3>
+                        <p class="product-desc">Segarnya lemon asli, pas buat cuaca panas. </p>
                         <div class="price-container">
-                            <span class="current-price">Rp 20,000</span>
+                            <span class="current-price">Rp 13,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
                 <!-- Drink 6 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Es Cincau">
+                    <img src="../tugas web klp/Lecy Tea.png" alt="Lecy Tea">
                     <div class="product-info">
-                        <h3>Es Cincau Makassar</h3>
-                        <p class="product-desc">Grass jelly drink with coconut milk and palm sugar</p>
+                        <h3>Lecy Tea</h3>
+                        <p class="product-desc">Segarnya buah lecy pas buat cuaca panas.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 20,000</span>
+                            <span class="current-price">Rp 14,000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>    
+                </div>
+                <!-- Drink 7 -->
+                <div class="product-card">
+                    <img src="../tugas web klp/Lemon Tea.png" alt="Lemon Tea">
+                    <div class="product-info">
+                        <h3>Lemon Tea</h3>
+                        <p class="product-desc">Lemon yang segar,bikin hilang haus.</p>
+                        <div class="price-container">
+                            <span class="current-price">Rp 14,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-            </div>
+                <!-- Drink 8 -->
+                <div class="product-card">
+                    <img src="../tugas web klp/Air Mineral.png"x alt="Air Mineral">
+                    <div class="product-info">
+                        <h3>Air Mineral</h3>
+                        <p class="product-desc">Segarnya buah lecy pas buat cuaca panas.</p>
+                        <div class="price-container">
+                            <span class="current-price">Rp 7,000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>    
+                </div>
+                <!-- Drink 9-->
+                <div class="product-card">
+                    <img src="../tugas web klp/Milk Tea.png" alt="milk tea">
+                    <div class="product-info">
+                        <h3>Milk Tea</h3>
+                        <p class="product-desc">Segarnya buah lecy pas buat cuaca panas.</p>
+                        <div class="price-container">
+                            <span class="current-price">Rp 14,000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>    
+                </div>
+                <!-- Drink 6 -->
+                <div id="Makanan" class="product-card">
+                    <img src="../tugas web klp/Lecy Tea.png" alt="Lecy Tea">
+                    <div class="product-info">
+                        <h3>Lecy Tea</h3>
+                        <p class="product-desc">Segarnya buah lecy pas buat cuaca panas.</p>
+                        <div class="price-container">
+                            <span class="current-price">Rp 14,000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>    
+                </div>
+                
+              
         </section>
 
         <section class="category-section">
-            <h2 class="section-title">Signature Foods</h2>
+            <h2 class="section-title">MAKANAN</h2>
             <div class="products-grid">
                 <!-- Food 1 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Coto Makassar">
+                    <img src="../tugas web klp/Basgor.png" alt="Basgor">
                     <div class="product-info">
-                        <h3>Coto Makassar</h3>
-                        <p class="product-desc">Traditional beef soup with rich spices</p>
+                        <h3>Bakso Goreng</h3>
+                        <p class="product-desc">"Gurih,renyah,dan pedasnya nampol!"</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 35,000</span>
+                            <span class="current-price">Rp 20.000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -776,12 +1058,12 @@
                 
                 <!-- Food 2 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Konro">
+                    <img src="../tugas web klp/pangsit.png" alt="pangsit">
                     <div class="product-info">
-                        <h3>Sop Konro</h3>
-                        <p class="product-desc">Ribs soup with black broth, served with rice</p>
+                        <h3>Pangsit Goreng</h3>
+                        <p class="product-desc">Isi daging, kulit krispi, bikin nagih!</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 40,000</span>
+                            <span class="current-price">Rp20,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -789,12 +1071,12 @@
                 
                 <!-- Food 3 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Pallubasa">
+                    <img src="../tugas web klp/tahu bakso.png" alt="Tahu bakso">
                     <div class="product-info">
-                        <h3>Pallubasa</h3>
-                        <p class="product-desc">Spicy beef soup with coconut milk</p>
+                        <h3>Tahu Bakso</h3>
+                        <p class="product-desc">Tahu lembut, isian bakso mantap!</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 38,000</span>
+                            <span class="current-price">Rp 20,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -802,36 +1084,84 @@
                 
                 <!-- Food 4 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Nasi Goreng Kambing">
+                    <img src="../tugas web klp/pisang gr.png" alt="Pisang Gr">
                     <div class="product-info">
-                        <h3>Nasi Goreng Kambing</h3>
-                        <p class="product-desc">Mutton fried rice with special spices</p>
+                        <h3>Pisang Goreng</h3>
+                        <p class="product-desc">Manis, garing, klasik favorit semua!</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 30,000</span>
+                            <span class="current-price">Rp 20,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
                 <!-- Food 5 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Nasi Goreng Kambing">
+                    <img src="../tugas web klp/pisang grt.png" alt="Pisang grt">
                     <div class="product-info">
-                        <h3>Nasi Goreng Kambing</h3>
-                        <p class="product-desc">Mutton fried rice with special spices</p>
+                        <h3>Pisang Goreng Toping</h3>
+                        <p class="product-desc">Pisang Topping lumer!</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 30,000</span>
+                            <span class="current-price">Rp 23,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
                 <!-- Food 6 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Nasi Goreng Kambing">
+                    <img src="../tugas web klp/pisang roll.png" alt="Pisang Roll">
                     <div class="product-info">
-                        <h3>Nasi Goreng Kambing</h3>
-                        <p class="product-desc">Mutton fried rice with special spices</p>
+                        <h3>Pisang Roll</h3>
+                        <p class="product-desc">Manis, renyah, dan lumer di mulut.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 30,000</span>
+                            <span class="current-price">Rp 23,000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Food 7 -->
+                <div class="product-card">
+                    <img src="../tugas web klp/batagor.png" alt="Batagor">
+                    <div class="product-info">
+                        <h3>Batagor</h3>
+                        <p class="product-desc">Gurih, pedas, dan bumbu kacangnya juara.</p>
+                        <div class="price-container">
+                            <span class="current-price">Rp 20,000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Food 8 -->
+                <div class="product-card">
+                    <img src="../tugas web klp/pangsit bas.png" alt="Pangsit Bas">
+                    <div class="product-info">
+                        <h3>Pangsit Basah</h3>
+                        <p class="product-desc">Lembut, gurih, dan penuh rasa</p>
+                        <div class="price-container">
+                            <span class="current-price">Rp 15,000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Food 9 -->
+                <div class="product-card">
+                    <img src="../tugas web klp/cbk.png" alt="Cbk">
+                    <div class="product-info">
+                        <h3>Cireng Bumbu Kacang</h3>
+                        <p class="product-desc">Kenyal & nikmat.</p>
+                        <div class="price-container">
+                            <span class="current-price">Rp 20,000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Food 10 -->
+                <div id="frozen food" class="product-card">
+                    <img src="../tugas web klp/cimol.png" alt="Cimol">
+                    <div class="product-info">
+                        <h3>Cimol</h3>
+                        <p class="product-desc">Kriuk di luar, kopong kenyal di dalam.</p>
+                        <div class="price-container">
+                            <span class="current-price">Rp 15,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -844,10 +1174,10 @@
             <div class="products-grid">
                 <!-- Frozen 1 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Frozen Coto">
+                    <img src="../tugas web klp/cireng baki.png" alt="Cireng Baki">
                     <div class="product-info">
-                        <h3>Frozen Coto Makassar</h3>
-                        <p class="product-desc">Ready to cook, just add water and heat</p>
+                        <h3>Frozen Cireng Crispy</h3>
+                        <p class="product-desc">Siap goreng, gurih kriuk! Tahan 3 bulan.</p>
                         <div class="price-container">
                             <span class="current-price">Rp 50,000</span>
                         </div>
@@ -857,12 +1187,12 @@
                 
                 <!-- Frozen 2 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1602526432604-029a709e131c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Frozen Konro">
+                    <img src="../tugas web klp/frozen bakso.jpeg" alt="Frozen Bakso">
                     <div class="product-info">
-                        <h3>Frozen Sop Konro</h3>
-                        <p class="product-desc">Complete package with ribs and spices</p>
+                        <h3>Frozen Bakso Goreng</h3>
+                        <p class="product-desc">Paket lengkap bakso pedas. Tahan 3 bulan.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 55,000</span>
+                            <span class="current-price">Rp 27,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -870,12 +1200,12 @@
                 
                 <!-- Frozen 3 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1606755456206-b25206bde3ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Frozen Pallubasa">
+                    <img src="../tugas web klp/frozen piscok.jpeg" alt="Frozen Piscok">
                     <div class="product-info">
-                        <h3>Frozen Pallubasa</h3>
-                        <p class="product-desc">Authentic taste, ready in 15 minutes</p>
+                        <h3>Frozen Pisang Coklat</h3>
+                        <p class="product-desc">Manis legit, pisang lumer coklatnya.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 48,000</span>
+                            <span class="current-price">Rp 20,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -883,38 +1213,29 @@
                 
                 <!-- Frozen 4 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Frozen Pisang Ijo">
+                    <img src="../tugas web klp/Frozen Tahu.jpeg" alt="Frozen Tahu">
                     <div class="product-info">
-                        <h3>Frozen Pisang Ijo</h3>
-                        <p class="product-desc">Just steam and serve with coconut milk</p>
+                        <h3>Frozen Tahu Bakso Goreng</h3>
+                        <p class="product-desc">Isi padat, gurih nikmat. Tahan 3 bulan.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 35,000</span>
+                            <span class="current-price">Rp 27,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
                  <!-- Frozen 4 -->
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Frozen Pisang Ijo">
+                    <img src="../tugas web klp/pangsit baki.png" alt="Pangsit Baki">
                     <div class="product-info">
-                        <h3>Frozen Pisang Ijo</h3>
-                        <p class="product-desc">Just steam and serve with coconut milk</p>
+                        <h3>Frozen Pangsit Goreng </h3>
+                        <p class="product-desc">Kulit renyah, isian juicy. Tahan 3 bulan.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 35,000</span>
+                            <span class="current-price">Rp 27,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                 <!-- Frozen 4 -->
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Frozen Pisang Ijo">
-                    <div class="product-info">
-                        <h3>Frozen Pisang Ijo</h3>
-                        <p class="product-desc">Just steam and serve with coconut milk</p>
-                        <div class="price-container">
-                            <span class="current-price">Rp 35,000</span>
-                        </div>
-                        <button class="add-to-cart">Add to Cart</button>
+                 
                     </div>
                 </div>
             </div>
@@ -922,7 +1243,7 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div id="kontak" class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>KAKU FOOD</h3>
@@ -965,22 +1286,224 @@
             </div>
         </div>
     </footer>
+      <!-- Shopping Cart Modal -->
+<div class="cart-modal" id="cartModal">
+    <div class="cart-modal-content">
+        <div class="cart-modal-header">
+            <h3>Keranjang Belanja</h3>
+            <span class="close-cart">&times;</span>
+        </div>
+        <div class="cart-modal-body" id="cartItems">
+            <!-- Cart items will be displayed here -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Keranjang belanja kosong</p>
+            </div>
+        </div>
+        <div class="cart-modal-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">Rp 0</span>
+            </div>
+            <button class="checkout-btn">Lanjut ke Pembayaran</button>
+        </div>
+    </div>
+</div>
 
-    <script>
-        // Hamburger menu functionality
-        document.getElementById('hamburger').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.toggle('active');
+ <script>
+    // Shopping Cart Functionality
+    let cart = [];
+    let cartCount = 0;
+    let cartTotal = 0;
+    
+    // DOM Elements
+    const cartIcon = document.querySelector('.cart-icon');
+    const cartModal = document.getElementById('cartModal');
+    const closeCart = document.querySelector('.close-cart');
+    const cartItemsContainer = document.getElementById('cartItems');
+    const cartTotalElement = document.getElementById('cartTotal');
+    const cartCountElement = document.querySelector('.cart-count');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    
+    // Toggle Cart Modal
+    cartIcon.addEventListener('click', () => {
+        cartModal.classList.add('active');
+        renderCartItems();
+    });
+    
+    closeCart.addEventListener('click', () => {
+        cartModal.classList.remove('active');
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === cartModal) {
+            cartModal.classList.remove('active');
+        }
+    });
+    
+    // Add to Cart Functionality
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productCard = e.target.closest('.product-card');
+            const productName = productCard.querySelector('h2').textContent; // Ensure this matches your HTML
+            const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', '').replace(',', '.'));
+            const productImage = productCard.querySelector('img').src;
+
+            addToCart(productName, productPrice, productImage);
         });
-
-        // Close menu when clicking on a link (for mobile)
-        const navLinks = document.querySelectorAll('.nav-links li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    document.getElementById('navLinks').classList.remove('active');
-                }
+    });
+    
+    // Add item to cart
+    function addToCart(name, price, image) {
+        const existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name, price, image, quantity: 1 });
+        }
+        
+        updateCart();
+        showToast(`${name} ditambahkan ke keranjang`);
+    }
+    
+    // Update cart count and total
+    function updateCart() {
+        cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+        cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        
+        cartCountElement.textContent = cartCount;
+        cartTotalElement.textContent = `Rp ${cartTotal.toLocaleString()}`;
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    
+    // Render cart items
+    function renderCartItems() {
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Keranjang belanja kosong</p>
+                </div>
+            `;
+            return;
+        }
+        
+        cartItemsContainer.innerHTML = '';
+        
+        cart.forEach((item, index) => {
+            const cartItemElement = document.createElement('div');
+            cartItemElement.className = 'cart-item';
+            cartItemElement.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                <div class="cart-item-details">
+                    <h4 class="cart-item-title">${item.name}</h4>
+                    <p class="cart-item-price">Rp ${item.price.toLocaleString()}</p>
+                    <div class="cart-item-actions">
+                        <div class="quantity-control">
+                            <button class="decrease-quantity" data-index="${index}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="increase-quantity" data-index="${index}">+</button>
+                        </div>
+                        <span class="remove-item" data-index="${index}">Hapus</span>
+                    </div>
+                </div>
+            `;
+            
+            cartItemsContainer.appendChild(cartItemElement);
+        });
+        
+        // Add event listeners to quantity buttons
+        document.querySelectorAll('.decrease-quantity').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.target.getAttribute('data-index');
+                updateQuantity(index, -1);
             });
         });
-    </script>
+        
+        document.querySelectorAll('.increase-quantity').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.target.getAttribute('data-index');
+                updateQuantity(index, 1);
+            });
+        });
+        
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.target.getAttribute('data-index');
+                removeItem(index);
+            });
+        });
+    }
+    
+    // Update item quantity
+    function updateQuantity(index, change) {
+        const item = cart[index];
+        item.quantity += change;
+        
+        if (item.quantity <= 0) {
+            cart.splice(index, 1);
+        }
+        
+        updateCart();
+        renderCartItems();
+    }
+    
+    // Remove item from cart
+    function removeItem(index) {
+        cart.splice(index, 1);
+        updateCart();
+        renderCartItems();
+    }
+    
+    // Show toast notification
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 10);
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 300);
+        }, 3000);
+    }
+    
+    // Load cart from localStorage on page load
+    function loadCart() {
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+            cart = JSON.parse(savedCart);
+            updateCart();
+        }
+    }
+    
+    // Hamburger menu functionality
+    document.getElementById('hamburger').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link (for mobile)
+    const navLinks = document.querySelectorAll('.nav-links li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+    });
+    
+    // Initialize
+    loadCart();
+</script>
+
 </body>
 </html>
