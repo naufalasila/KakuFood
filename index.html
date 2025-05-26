@@ -507,7 +507,7 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background-color: var(--white);
+                background-color: var(--nav-color);
                 z-index: 99;
             }
             
@@ -534,6 +534,7 @@
             
             .hero p {
                 font-size: 16px;
+                
             }
             
             .section-title {
@@ -558,11 +559,16 @@
             .product-info {
                 padding: 10px;
             }
+
+             .product-info h2 {
+                color: black;
+            }
             
             .product-info h3 {
                 font-size: 14px;
             }
-            
+
+           
             .product-desc {
                 font-size: 12px;
             }
@@ -611,7 +617,7 @@
                 grid-template-columns: repeat(2, minmax(140px, 1fr));
             }
         }
-       /* Cart Modal Styles */
+     /* Cart Modal Styles */
 .cart-modal {
     display: none;
     position: fixed;
@@ -751,6 +757,7 @@
     margin: 0 10px;
     min-width: 20px;
     text-align: center;
+    color: #313030;
 }
 
 .remove-item {
@@ -768,7 +775,9 @@
     padding: 20px;
     border-top: 1px solid #eee;
 }
-
+.cart-total span {
+   color: black;
+}
 .cart-total {
     display: flex;
     justify-content: space-between;
@@ -776,6 +785,7 @@
     font-size: 18px;
     font-weight: bold;
 }
+
 
 .checkout-btn {
     width: 100%;
@@ -824,7 +834,7 @@
         <div class="container">
             <div class="logo">
                 <h1>KAKU FOOD</h1>
-                <p>Authentic Makassar Flavors</p>
+                <p> 현대식 스낵 카쿠 푸드</p>
             </div>
             <div class="search-cart">
                 <div class="search-bar">
@@ -848,7 +858,7 @@
                     <li><a href="#minuman">Minuman</a></li>
                     <li><a href="#hemat">Paket Murah</a></li>
                     <li><a href="#frozen food">Frozen Food</a></li>
-                    <li><a href="#kontak">kontak kami</a></li>
+                    <li><a href="#kontak">Kontak kami</a></li>
                     <li><a href="info.html">Tentang Kami</a></li>
                 </ul>
             </div>
@@ -985,7 +995,7 @@
                         <h3>Lecy Tea</h3>
                         <p class="product-desc">Segarnya buah lecy pas buat cuaca panas.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 14,000</span>
+                            <span class="current-price">Rp 13,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>    
@@ -997,7 +1007,7 @@
                         <h3>Lemon Tea</h3>
                         <p class="product-desc">Lemon yang segar,bikin hilang haus.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 14,000</span>
+                            <span class="current-price">Rp 13,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
@@ -1021,19 +1031,19 @@
                         <h3>Milk Tea</h3>
                         <p class="product-desc">Segarnya buah lecy pas buat cuaca panas.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 14,000</span>
+                            <span class="current-price">Rp 13,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>    
                 </div>
                 <!-- Drink 6 -->
                 <div id="Makanan" class="product-card">
-                    <img src="Lecy Tea.png" alt="Lecy Tea">
+                    <img src="Es Teh.png" alt="Es Teh">
                     <div class="product-info">
-                        <h3>Lecy Tea</h3>
+                        <h3>Es Teh</h3>
                         <p class="product-desc">Segarnya buah lecy pas buat cuaca panas.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 14,000</span>
+                            <span class="current-price">Rp 10,00 0</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>    
@@ -1103,22 +1113,24 @@
                         <h3>Pisang Goreng Toping</h3>
                         <p class="product-desc">Pisang Topping lumer!</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 23,000</span>
+                            <span class="current-price">Rp 23.000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
+
                 <!-- Food 6 -->
                 <div class="product-card">
-                    <img src="pisang roll.png" alt="Pisang Roll">
+                    <img src="pisang roll.png" alt="Pisang Roll"> 
                     <div class="product-info">
                         <h3>Pisang Roll</h3>
                         <p class="product-desc">Manis, renyah, dan lumer di mulut.</p>
                         <div class="price-container">
-                            <span class="current-price">Rp 23,000</span>
-                        </div>
-                        <button class="add-to-cart">Add to Cart</button>
+                            <span class="current-price">Rp 23.000</span>
                     </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
                 </div>
                 <!-- Food 7 -->
                 <div class="product-card">
@@ -1312,7 +1324,8 @@
     </div>
 </div>
 
- <script>
+
+  <script>
     // Shopping Cart Functionality
     let cart = [];
     let cartCount = 0;
@@ -1348,25 +1361,46 @@
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             const productCard = e.target.closest('.product-card');
-            const productName = productCard.querySelector('h2').textContent; // Ensure this matches your HTML
-            const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', '').replace(',', '.'));
+            const productName = productCard.querySelector('h3').textContent;
+            const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace(',', ''));
             const productImage = productCard.querySelector('img').src;
-
+            
             addToCart(productName, productPrice, productImage);
         });
     });
+    // Add to Cart Functionality
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        const productCard = e.target.closest('.product-card'); // Ambil elemen terdekat dengan class 'product-card'
+        const productName = productCard.querySelector('h2').textContent; // Ganti 'h3' dengan 'h2' untuk mengambil nama produk
+        const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', '').replace(',', '.')); // Pastikan format harga benar
+        const productImage = productCard.querySelector('img').src;
+
+        addToCart(productName, productPrice, productImage);
+    });
+});
+
     
     // Add item to cart
     function addToCart(name, price, image) {
+        // Check if item already exists in cart
         const existingItem = cart.find(item => item.name === name);
         
         if (existingItem) {
             existingItem.quantity += 1;
         } else {
-            cart.push({ name, price, image, quantity: 1 });
+            cart.push({
+                name: name,
+                price: price,
+                image: image,
+                quantity: 1
+            });
         }
         
+        // Update cart count and total
         updateCart();
+        
+        // Show success message
         showToast(`${name} ditambahkan ke keranjang`);
     }
     
@@ -1375,9 +1409,11 @@
         cartCount = cart.reduce((total, item) => total + item.quantity, 0);
         cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
         
+        // Update UI
         cartCountElement.textContent = cartCount;
         cartTotalElement.textContent = `Rp ${cartTotal.toLocaleString()}`;
         
+        // Save to localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
     }
     

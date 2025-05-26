@@ -158,7 +158,7 @@
         .nav-links li a {
             display: block;
             padding: 15px 20px;
-            color: var(--text-color);
+            color: var(--white);
             font-weight: 500;
             transition: var(--transition);
         }
@@ -166,6 +166,7 @@
         .nav-links li a:hover, 
         .nav-links li a.active {
             background-color: var(--white);
+            color: #333;
         }
 
         .hamburger {
@@ -731,7 +732,7 @@
                     <li><a href="index.html#hemat">Paket Murah</a></li>
                     <li><a href="index.html#frozen-food">Frozen Food</a></li>
                     <li><a href="index.html#kontak">Kontak Kami</a></li>
-                    <li><a href="about.html" class="active">Tentang Kami</a></li>
+                    <li><a href="info.html" class="active">Tentang Kami</a></li>
                 </ul>
             </div>
         </nav>
@@ -754,7 +755,7 @@
                     <p>Perjalanan KAKU FOOD menjadi inspirasi bagi banyak pelaku UMKM di Indonesia, membuktikan bahwa dengan perencanaan matang, inovasi produk, dan adaptasi terhadap perubahan zaman, sebuah bisnis dapat berkembang pesat meskipun menghadapi tantangan besar.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="KAKU FOOD Store">
+                    <img src="logo baru.jpg" alt="KAKU FOOD Store">
                 </div>
             </div>
 
@@ -786,7 +787,7 @@
             <h2 class="section-title">Produk Kami</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="KAKU FOOD Products">
+                    <img src="gambar-info2.jpg" alt="KAKU FOOD Products">
                 </div>
                 <div class="about-text">
                     <p>KAKU FOOD menawarkan berbagai jajanan asin dan manis yang menggugah selera, dengan harga terjangkau berkisar antara Rp 15.000 hingga Rp 23.000. Menu andalan kami mencakup:</p>
@@ -812,7 +813,7 @@
                     <p>Kini, dengan hadirnya website e-commerce KAKU FOOD, pelanggan dapat dengan mudah memesan produk favorit mereka kapan saja dan di mana saja, baik untuk dine-in, take away, maupun delivery.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Digital Innovation">
+                    <img src="digital.jpg" alt="Digital Innovation">
                 </div>
             </div>
         </section>
@@ -824,15 +825,15 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3 style="color: var(--primary-color); margin-bottom: 15px;">Visi</h3>
-                    <p>Menjadi merek kuliner jajanan kekinian terdepan di Indonesia yang menghadirkan cita rasa autentik dengan kualitas terbaik dan inovasi terus-menerus.</p>
+                    <p>Menjadi merek industri jajanan terbaik dan terpoouler Indonesia.</p>
                     
                     <h3 style="color: var(--primary-color); margin-top: 30px; margin-bottom: 15px;">Misi</h3>
                     <ul style="margin-left: 20px;">
-                        <li>• Menyajikan produk berkualitas tinggi dengan bahan-bahan terbaik</li>
-                        <li>• Mempertahankan cita rasa autentik Makassar dalam setiap produk</li>
-                        <li>• Terus berinovasi dalam menciptakan varian produk baru</li>
-                        <li>• Memberikan pelayanan terbaik kepada pelanggan</li>
-                        <li>• Berkontribusi terhadap perkembangan UMKM di Indonesia</li>
+                        <li>• Menciptakan merek kekinian</li>
+                        <li>• Pelayanan konsisten yang bersahabat dengan pelanggan</li>
+                        <li>• Inovasi produk tiada henti dengan kreativitas dan kualitas yang terjamin</li>
+                        <li>• Menumbuhkembangkan potensi terbaik pada setiap karyawan</li>
+                        <li>• Proses bisnis menguntungkan yang efektif dan efisien</li>
                     </ul>
                 </div>
                 <div class="about-image">
@@ -953,6 +954,18 @@
             addToCart(productName, productPrice, productImage);
         });
     });
+    // Add to Cart Functionality
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        const productCard = e.target.closest('.product-card'); // Ambil elemen terdekat dengan class 'product-card'
+        const productName = productCard.querySelector('h2').textContent; // Ganti 'h3' dengan 'h2' untuk mengambil nama produk
+        const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', '').replace(',', '.')); // Pastikan format harga benar
+        const productImage = productCard.querySelector('img').src;
+
+        addToCart(productName, productPrice, productImage);
+    });
+});
+
     
     // Add item to cart
     function addToCart(name, price, image) {
