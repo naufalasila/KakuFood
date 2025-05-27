@@ -1325,6 +1325,7 @@
 </div>
 
 
+
   <script>
     // Shopping Cart Functionality
     let cart = [];
@@ -1515,6 +1516,7 @@ addToCartButtons.forEach(button => {
         }, 3000);
     }
     
+    
     // Load cart from localStorage on page load
     function loadCart() {
         const savedCart = localStorage.getItem('cart');
@@ -1541,6 +1543,33 @@ addToCartButtons.forEach(button => {
     
     // Initialize
     loadCart();
+    // Checkout functionality
+document.querySelector('.checkout-btn').addEventListener('click', () => {
+    if (cart.length === 0) {
+        showToast('Keranjang belanja kosong');
+        return;
+    }
+    
+    // Format pesan WhatsApp
+    let message = `Halo, saya ingin memesan produk berikut:\n\n`;
+    
+    cart.forEach(item => {
+        message += `- ${item.name} (${item.quantity}x) - Rp ${item.price.toLocaleString()}\n`;
+    });
+    
+    message += `\nTotal: Rp ${cartTotal.toLocaleString()}\n\nTerima kasih!`;
+    
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Ganti dengan nomor WhatsApp tujuan (format: 6281234567890)
+    const phoneNumber = '085796748574'; 
+    
+    // Redirect ke WhatsApp
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+});
+
+    
 </script>
 
 </body>
