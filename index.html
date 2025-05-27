@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hacker Login Form</title>
   <style>
     /* Font import and global reset */
@@ -22,6 +23,7 @@
       align-items: center;
       min-height: 100vh;
       background: #570a02;
+      overflow-x: hidden;
     }
 
     /* Section styles */
@@ -43,7 +45,6 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      /* background: linear-gradient(#ffffff, rgb(255, 38, 38), #ffffff); */
       animation: animate 5s linear infinite;
     }
 
@@ -76,15 +77,17 @@
     /* Sign-in form styles */
     .signin {
       position: absolute;
-      width: 400px;
+      width: 90%;
+      max-width: 400px;
       background: #ffffff;
       z-index: 1000;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px;
+      padding: 30px;
       border-radius: 4px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+      margin: 20px;
     }
 
     .signin .content {
@@ -94,20 +97,21 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap: 40px;
+      gap: 30px;
     }
 
     .signin .content h2 {
       font-size: 2em;
       color:#911507;
       text-transform: uppercase;
+      text-align: center;
     }
 
     .signin .content .form {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 20px;
     }
 
     .signin .content .form .inputBox {
@@ -150,11 +154,14 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .signin .content .form .links a {
       color: #911507;
       text-decoration: none;
+      font-size: 0.9em;
     }
 
     .signin .content .form .links a:nth-child(2) {
@@ -163,16 +170,21 @@
     }
 
     .signin .content .form .inputBox button[type="submit"] {
-      padding: 10px;
+      padding: 12px;
       background:#911507;
       color: #ffffff;
       font-weight: 600;
-      font-size: 1.35em;
+      font-size: 1.2em;
       letter-spacing: 0.05em;
       cursor: pointer;
       border: none;
       width: 100%;
       border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .signin .content .form .inputBox button[type="submit"]:hover {
+      background: #7a1005;
     }
 
     input[type="submit"]:active {
@@ -180,17 +192,89 @@
     }
 
     /* Media queries for responsive design */
+    @media (max-width: 1200px) {
+      section span {
+        width: calc(8vw - 2px);
+        height: calc(8vw - 2px);
+      }
+    }
+
     @media (max-width: 900px) {
       section span {
         width: calc(10vw - 2px);
         height: calc(10vw - 2px);
       }
+      
+      .signin {
+        padding: 25px;
+      }
+      
+      .signin .content {
+        gap: 25px;
+      }
     }
 
     @media (max-width: 600px) {
       section span {
+        width: calc(15vw - 2px);
+        height: calc(15vw - 2px);
+      }
+      
+      .signin {
+        padding: 20px;
+      }
+      
+      .signin .content h2 {
+        font-size: 1.7em;
+      }
+      
+      .signin .content .form {
+        gap: 15px;
+      }
+      
+      .signin .content .form .inputBox input {
+        padding: 22px 10px 7.5px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      section span {
         width: calc(20vw - 2px);
         height: calc(20vw - 2px);
+      }
+      
+      .signin {
+        padding: 15px;
+      }
+      
+      .signin .content h2 {
+        font-size: 1.5em;
+      }
+      
+      .signin .content .form .inputBox input {
+        padding: 20px 10px 5px;
+        font-size: 0.9em;
+      }
+      
+      .signin .content .form .inputBox i {
+        padding: 12px 10px;
+        font-size: 0.9em;
+      }
+      
+      .signin .content .form .inputBox button[type="submit"] {
+        padding: 10px;
+        font-size: 1.1em;
+      }
+    }
+
+    /* For very small devices (e.g., iPhone 5/SE) */
+    @media (max-width: 320px) {
+      .signin .content h2 {
+        font-size: 1.3em;
+      }
+      
+      .signin .content .form .links a {
+        font-size: 0.8em;
       }
     }
   </style>
