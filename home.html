@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./asset/css/home.css">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -44,21 +46,29 @@
     </header>
 
     <main class="container">
-         <div class="hero-container">
-        <div class="hero-slider">
-            <div class="hero-slide slide-1" >
-               
+        <div class="hero-container">
+            <div class="hero-slider">
+                <div class="hero-slide slide-1">
+
+                </div>
+                <div class="hero-slide slide-2">
+                    <h2 id="hemat">Hero Content Kedua</h2>
+                </div>
+                <div class="hero-slide slide-3">
+                    <h2 id="hemat">Hero Content ketiga</h2>
+                </div>
+                <div class="hero-slide slide-4">
+                    <h2 id="hemat">Hero Content keempat</h2>
+                </div>
             </div>
-            <div class="hero-slide slide-2">
-                <h2>Hero Content Kedua</h2>
+
+            <div class="slider-controls">
+                <button class="slider-btn active" onclick="goToSlide(0)"></button>
+                <button class="slider-btn" onclick="goToSlide(1)"></button>
+                <button class="slider-btn" onclick="goToSlide(2)"></button>
+                <button class="slider-btn" onclick="goToSlide(3)"></button>
             </div>
         </div>
-        
-        <div class="slider-controls">
-            <button class="slider-btn active" onclick="goToSlide(0)"></button>
-            <button class="slider-btn" onclick="goToSlide(1)"></button>
-        </div>
-    </div>
 
 
         <section class="promo-section">
@@ -66,7 +76,7 @@
             <div class="promo-products">
                 <!-- Promo Product 1 -->
                 <div class="product-card promo-card">
-                    
+
                     <img src="./asset/image/hemat A.jpeg" alt="Family Package">
                     <div class="product-info">
                         <h2>TEBUS MURAH A</h2>
@@ -78,10 +88,10 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Promo Product 2 -->
                 <div class="product-card promo-card">
-                    
+
                     <img src="./asset/image/hemat B.jpeg" alt="Weekend Special">
                     <div class="product-info">
                         <h2>TEBUS MURAH B</h2>
@@ -93,9 +103,9 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                 <!-- Promo Product 3 -->
+                <!-- Promo Product 3 -->
                 <div class="product-card promo-card">
-                    
+
                     <img src="./asset/image/hemat C.jpg" alt="Weekend Special">
                     <div id="minuman" class="product-info">
                         <h2>TEBUS MURAH C</h2>
@@ -110,7 +120,7 @@
             </div>
         </section>
 
-        <section  class="category-section">
+        <section class="category-section">
             <h2 class="section-title">MINUMAN</h2>
             <div class="products-grid">
                 <!-- Drink 1 -->
@@ -125,7 +135,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Drink 2 -->
                 <div class="product-card">
                     <img src="./asset/image/green tea.png" alt="Green tea">
@@ -138,7 +148,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Drink 3 -->
                 <div class="product-card">
                     <img src="./asset/image/es kopi.png" alt="Es kopi">
@@ -151,7 +161,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Drink 4 -->
                 <div class="product-card">
                     <img src="./asset/image/Dark choco.png" alt="Dark Choco">
@@ -186,7 +196,7 @@
                             <span class="current-price">Rp 13,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
-                    </div>    
+                    </div>
                 </div>
                 <!-- Drink 7 -->
                 <div class="product-card">
@@ -202,7 +212,7 @@
                 </div>
                 <!-- Drink 8 -->
                 <div class="product-card">
-                    <img src="./asset/image/Air Mineral.png"x alt="Air Mineral">
+                    <img src="./asset/image/Air Mineral.png" x alt="Air Mineral">
                     <div class="product-info">
                         <h3>Air Mineral</h3>
                         <p class="product-desc">Segarnya buah lecy pas buat cuaca panas.</p>
@@ -210,7 +220,7 @@
                             <span class="current-price">Rp 7,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
-                    </div>    
+                    </div>
                 </div>
                 <!-- Drink 9-->
                 <div class="product-card">
@@ -222,7 +232,7 @@
                             <span class="current-price">Rp 13,000</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
-                    </div>    
+                    </div>
                 </div>
                 <!-- Drink 6 -->
                 <div id="Makanan" class="product-card">
@@ -234,10 +244,10 @@
                             <span class="current-price">Rp 10,00 0</span>
                         </div>
                         <button class="add-to-cart">Add to Cart</button>
-                    </div>    
+                    </div>
                 </div>
-                
-              
+
+
         </section>
 
         <section class="category-section">
@@ -255,7 +265,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Food 2 -->
                 <div class="product-card">
                     <img src="./asset/image/pangsit.png" alt="pangsit">
@@ -268,7 +278,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Food 3 -->
                 <div class="product-card">
                     <img src="./asset/image/tahu bakso.png" alt="Tahu bakso">
@@ -281,7 +291,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Food 4 -->
                 <div class="product-card">
                     <img src="./asset/image/pisang gr.png" alt="Pisang Gr">
@@ -309,15 +319,15 @@
 
                 <!-- Food 6 -->
                 <div class="product-card">
-                    <img src="./asset/image/pisang roll.png" alt="Pisang Roll"> 
+                    <img src="./asset/image/pisang roll.png" alt="Pisang Roll">
                     <div class="product-info">
                         <h3>Pisang Roll</h3>
                         <p class="product-desc">Manis, renyah, dan lumer di mulut.</p>
                         <div class="price-container">
                             <span class="current-price">Rp 23.000</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
 
                 </div>
                 <!-- Food 7 -->
@@ -386,7 +396,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Frozen 2 -->
                 <div class="product-card">
                     <img src="./asset/image/frozen bakso.jpeg" alt="Frozen Bakso">
@@ -399,7 +409,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Frozen 3 -->
                 <div class="product-card">
                     <img src="./asset/image/frozen piscok.jpeg" alt="Frozen Piscok">
@@ -412,7 +422,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Frozen 4 -->
                 <div class="product-card">
                     <img src="./asset/image/Frozen Tahu.jpeg" alt="Frozen Tahu">
@@ -425,7 +435,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                 <!-- Frozen 4 -->
+                <!-- Frozen 4 -->
                 <div class="product-card">
                     <img src="./asset/image/pangsit baki.png" alt="Pangsit Baki">
                     <div class="product-info">
@@ -437,9 +447,9 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                 
-                    </div>
-                </div>
+
+            </div>
+            </div>
             </div>
         </section>
     </main>
@@ -449,7 +459,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>KAKU FOOD</h3>
-                    <p>Kaku Food didirikan pada tahun 2019.kami telah memiliki 16 outlet di kota Makassar,Gowa dan Maros.Nama "Kaku Food" dipilih karena berasal dari bahasa Jepang yang berarti "menulis"</p>
+                    <p>Kaku Food didirikan pada tahun 2019.kami telah memiliki 16 outlet di kota Makassar,Gowa dan
+                        Maros.Nama "Kaku Food" dipilih karena berasal dari bahasa Jepang yang berarti "menulis"</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -488,178 +499,176 @@
             </div>
         </div>
     </footer>
-      <!-- Shopping Cart Modal -->
-<div class="cart-modal" id="cartModal">
-    <div class="cart-modal-content">
-        <div class="cart-modal-header">
-            <h3>Keranjang Belanja</h3>
-            <span class="close-cart">&times;</span>
-        </div>
-        <div class="cart-modal-body" id="cartItems">
-            <!-- Cart items will be displayed here -->
-            <div class="empty-cart">
-                <i class="fas fa-shopping-cart"></i>
-                <p>Keranjang belanja kosong</p>
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>Keranjang Belanja</h3>
+                <span class="close-cart">&times;</span>
             </div>
-        </div>
-        <div class="cart-modal-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">Rp 0</span>
+            <div class="cart-modal-body" id="cartItems">
+                <!-- Cart items will be displayed here -->
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Keranjang belanja kosong</p>
+                </div>
             </div>
-            <button class="checkout-btn">Lanjut ke Pembayaran</button>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Rp 0</span>
+                </div>
+                <button class="checkout-btn">Lanjut ke Pembayaran</button>
+            </div>
         </div>
     </div>
-</div>
 
 
 
-  <script>
-    // Hero Slider Functionality//
-    const slider = document.querySelector('.hero-slider');
+    <script>
+        // Hero Slider Functionality//
+        const slider = document.querySelector('.hero-slider');
         const slides = document.querySelectorAll('.hero-slide');
         const dots = document.querySelectorAll('.slider-btn');
         let currentSlide = 0;
-        
+
         function updateSlider() {
             slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update active dot
+
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
             });
         }
-        
+
         function nextSlide() {
             currentSlide = (currentSlide + 1) % slides.length;
             updateSlider();
         }
-        
+
         function prevSlide() {
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             updateSlider();
         }
-        
+
         function goToSlide(index) {
             currentSlide = index;
             updateSlider();
         }
-        
-        // Otomatis geser setiap 5 detik (opsional)
+
         setInterval(nextSlide, 5000);
 
 
 
 
-    // Shopping Cart Functionality
-    let cart = [];
-    let cartCount = 0;
-    let cartTotal = 0;
-    
-    // DOM Elements
-    const cartIcon = document.querySelector('.cart-icon');
-    const cartModal = document.getElementById('cartModal');
-    const closeCart = document.querySelector('.close-cart');
-    const cartItemsContainer = document.getElementById('cartItems');
-    const cartTotalElement = document.getElementById('cartTotal');
-    const cartCountElement = document.querySelector('.cart-count');
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    
-    // Toggle Cart Modal
-    cartIcon.addEventListener('click', () => {
-        cartModal.classList.add('active');
-        renderCartItems();
-    });
-    
-    closeCart.addEventListener('click', () => {
-        cartModal.classList.remove('active');
-    });
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', (e) => {
-        if (e.target === cartModal) {
-            cartModal.classList.remove('active');
-        }
-    });
-    
-    // Add to Cart Functionality
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productCard = e.target.closest('.product-card');
-            const productName = productCard.querySelector('h3').textContent;
-            const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace(',', ''));
-            const productImage = productCard.querySelector('img').src;
-            
-            addToCart(productName, productPrice, productImage);
+        // Shopping Cart Functionality
+        let cart = [];
+        let cartCount = 0;
+        let cartTotal = 0;
+
+        // DOM Elements
+        const cartIcon = document.querySelector('.cart-icon');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.querySelector('.close-cart');
+        const cartItemsContainer = document.getElementById('cartItems');
+        const cartTotalElement = document.getElementById('cartTotal');
+        const cartCountElement = document.querySelector('.cart-count');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        // Toggle Cart Modal
+        cartIcon.addEventListener('click', () => {
+            cartModal.classList.add('active');
+            renderCartItems();
         });
-    });
-    // Add to Cart Functionality
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        const productCard = e.target.closest('.product-card'); // Ambil elemen terdekat dengan class 'product-card'
-        const productName = productCard.querySelector('h2').textContent; // Ganti 'h3' dengan 'h2' untuk mengambil nama produk
-        const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', '').replace(',', '.')); // Pastikan format harga benar
-        const productImage = productCard.querySelector('img').src;
 
-        addToCart(productName, productPrice, productImage);
-    });
-});
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.remove('active');
+        });
 
-    
-    // Add item to cart
-    function addToCart(name, price, image) {
-        // Check if item already exists in cart
-        const existingItem = cart.find(item => item.name === name);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({
-                name: name,
-                price: price,
-                image: image,
-                quantity: 1
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.classList.remove('active');
+            }
+        });
+
+        // Add to Cart Functionality
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productCard = e.target.closest('.product-card');
+                const productName = productCard.querySelector('h3').textContent;
+                const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace(',', ''));
+                const productImage = productCard.querySelector('img').src;
+
+                addToCart(productName, productPrice, productImage);
             });
+        });
+        // Add to Cart Functionality
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productCard = e.target.closest('.product-card'); // Ambil elemen terdekat dengan class 'product-card'
+                const productName = productCard.querySelector('h2').textContent; // Ganti 'h3' dengan 'h2' untuk mengambil nama produk
+                const productPrice = parseFloat(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', '').replace(',', '.')); // Pastikan format harga benar
+                const productImage = productCard.querySelector('img').src;
+
+                addToCart(productName, productPrice, productImage);
+            });
+        });
+
+
+        // Add item to cart
+        function addToCart(name, price, image) {
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+
+            // Update cart count and total
+            updateCart();
+
+            // Show success message
+            showToast(`${name} ditambahkan ke keranjang`);
         }
-        
+
         // Update cart count and total
-        updateCart();
-        
-        // Show success message
-        showToast(`${name} ditambahkan ke keranjang`);
-    }
-    
-    // Update cart count and total
-    function updateCart() {
-        cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-        cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-        
-        // Update UI
-        cartCountElement.textContent = cartCount;
-        cartTotalElement.textContent = `Rp ${cartTotal.toLocaleString()}`;
-        
-        // Save to localStorage
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-    
-    // Render cart items
-    function renderCartItems() {
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = `
+        function updateCart() {
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+            // Update UI
+            cartCountElement.textContent = cartCount;
+            cartTotalElement.textContent = `Rp ${cartTotal.toLocaleString()}`;
+
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Render cart items
+        function renderCartItems() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
                 <div class="empty-cart">
                     <i class="fas fa-shopping-cart"></i>
                     <p>Keranjang belanja kosong</p>
                 </div>
             `;
-            return;
-        }
-        
-        cartItemsContainer.innerHTML = '';
-        
-        cart.forEach((item, index) => {
-            const cartItemElement = document.createElement('div');
-            cartItemElement.className = 'cart-item';
-            cartItemElement.innerHTML = `
+                return;
+            }
+
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
                 <img src="${item.image}" alt="${item.name}" class="cart-item-img">
                 <div class="cart-item-details">
                     <h4 class="cart-item-title">${item.name}</h4>
@@ -674,127 +683,128 @@ addToCartButtons.forEach(button => {
                     </div>
                 </div>
             `;
-            
-            cartItemsContainer.appendChild(cartItemElement);
-        });
-        
-        // Add event listeners to quantity buttons
-        document.querySelectorAll('.decrease-quantity').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const index = e.target.getAttribute('data-index');
-                updateQuantity(index, -1);
-            });
-        });
-        
-        document.querySelectorAll('.increase-quantity').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const index = e.target.getAttribute('data-index');
-                updateQuantity(index, 1);
-            });
-        });
-        
-        document.querySelectorAll('.remove-item').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const index = e.target.getAttribute('data-index');
-                removeItem(index);
-            });
-        });
-    }
-    
-    // Update item quantity
-    function updateQuantity(index, change) {
-        const item = cart[index];
-        item.quantity += change;
-        
-        if (item.quantity <= 0) {
-            cart.splice(index, 1);
-        }
-        
-        updateCart();
-        renderCartItems();
-    }
-    
-    // Remove item from cart
-    function removeItem(index) {
-        cart.splice(index, 1);
-        updateCart();
-        renderCartItems();
-    }
-    
-    // Show toast notification
-    function showToast(message) {
-        const toast = document.createElement('div');
-        toast.className = 'toast-notification';
-        toast.textContent = message;
-        document.body.appendChild(toast);
-        
-        setTimeout(() => {
-            toast.classList.add('show');
-        }, 10);
-        
-        setTimeout(() => {
-            toast.classList.remove('show');
-            setTimeout(() => {
-                document.body.removeChild(toast);
-            }, 300);
-        }, 3000);
-    }
-    
-    
-    // Load cart from localStorage on page load
-    function loadCart() {
-        const savedCart = localStorage.getItem('cart');
-        if (savedCart) {
-            cart = JSON.parse(savedCart);
-            updateCart();
-        }
-    }
-    
-    // Hamburger menu functionality
-    document.getElementById('hamburger').addEventListener('click', function() {
-        document.getElementById('navLinks').classList.toggle('active');
-    });
-    
-    // Close menu when clicking on a link (for mobile)
-    const navLinks = document.querySelectorAll('.nav-links li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                document.getElementById('navLinks').classList.remove('active');
-            }
-        });
-    });
-    
-    // Initialize
-    loadCart();
-    // Checkout functionality
-document.querySelector('.checkout-btn').addEventListener('click', () => {
-    if (cart.length === 0) {
-        showToast('Keranjang belanja kosong');
-        return;
-    }
-    
-    // Format pesan WhatsApp
-    let message = `Halo, saya ingin memesan produk berikut:\n\n`;
-    
-    cart.forEach(item => {
-        message += `- ${item.name} (${item.quantity}x) - Rp ${item.price.toLocaleString()}\n`;
-    });
-    
-    message += `\nTotal: Rp ${cartTotal.toLocaleString()}\n\nTerima kasih!`;
-    
-    // Encode message for URL
-    const encodedMessage = encodeURIComponent(message);
-    
-    // Ganti dengan nomor WhatsApp tujuan (format: 6281234567890)
-    const phoneNumber = '+6281258209830'; 
-    
-    // Redirect ke WhatsApp
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-});
 
-    
-</script>
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const index = e.target.getAttribute('data-index');
+                    updateQuantity(index, -1);
+                });
+            });
+
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const index = e.target.getAttribute('data-index');
+                    updateQuantity(index, 1);
+                });
+            });
+
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const index = e.target.getAttribute('data-index');
+                    removeItem(index);
+                });
+            });
+        }
+
+        // Update item quantity
+        function updateQuantity(index, change) {
+            const item = cart[index];
+            item.quantity += change;
+
+            if (item.quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            updateCart();
+            renderCartItems();
+        }
+
+        // Remove item from cart
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+            renderCartItems();
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+
+        // Load cart from localStorage on page load
+        function loadCart() {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCart();
+            }
+        }
+
+        // Hamburger menu functionality
+        document.getElementById('hamburger').addEventListener('click', function () {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link (for mobile)
+        const navLinks = document.querySelectorAll('.nav-links li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Initialize
+        loadCart();
+        // Checkout functionality
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                showToast('Keranjang belanja kosong');
+                return;
+            }
+
+            // Format pesan WhatsApp
+            let message = `Halo, saya ingin memesan produk berikut:\n\n`;
+
+            cart.forEach(item => {
+                message += `- ${item.name} (${item.quantity}x) - Rp ${item.price.toLocaleString()}\n`;
+            });
+
+            message += `\nTotal: Rp ${cartTotal.toLocaleString()}\n\nTerima kasih!`;
+
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Ganti dengan nomor WhatsApp tujuan (format: 6281234567890)
+            const phoneNumber = '+6281258209830';
+
+            // Redirect ke WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        });
+
+
+    </script>
 
 </body>
+
 </html>
