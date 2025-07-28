@@ -1,39 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Login Form</title>
-  <link rel="stylesheet" href="./asset/css/style.css">
- 
+  <title>Kaku Food - Login & Signup</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+    /* Global reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* Body styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #570a02;
+      overflow-x: hidden;
+    }
+
+    /* Section styles */
+    section {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2px;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+
+    /* Animated gradient effect */
+    section::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: animate 5s linear infinite;
+    }
+
+    /* Animation keyframes */
+    @keyframes animate {
+      0% {
+        transform: translateY(-100%);
+      }
+
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    
+    /* Auth form container */
+    .auth-container {
+      position: absolute;
+      width: 65%;
+      max-width: 400px;
+      background: #ffffff;
+      z-index: 1000;
+      border-radius: 4px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+      margin: 20px;
+      overflow: hidden;
+    }
+
+
+    .toggle-password {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 1em;
+      color: #fff;
+      z-index: 5;
+      padding: 37px;
+      margin-right: -30px;
+      
+    }
+
+
+    /* Form styles */
+    .auth-form {
+      padding: 30px;
+      width: 100%;
+      transition: all 0.5s ease;
+    }
+
+    .auth-form .content {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .auth-form .content h2 {
+      font-size: 2em;
+      color: #911507;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .auth-form .content .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .auth-form .content .form .inputBox {
+      position: relative;
+      width: 100%;
+    }
+
+    .auth-form .content .form .inputBox input {
+      position: relative;
+      width: 100%;
+      background: #911507;
+      border: none;
+      outline: none;
+      padding: 25px 10px 7.5px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 500;
+      font-size: 1em;
+    }
+
+    .auth-form .content .form .inputBox i {
+      position: absolute;
+      left: 0;
+      padding: 15px 10px;
+      font-style: normal;
+      color: #ffffff;
+      transition: 0.5s;
+      pointer-events: none;
+    }
+
+    .auth-form .content .form .inputBox input:focus~i,
+    .auth-form .content .form .inputBox input:valid~i {
+      transform: translateY(-7.5px);
+      font-size: 0.8em;
+      color: #fff;
+    }
+
+    .auth-form .content .form .links {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .auth-form .content .form .links a {
+      color: #911507;
+      text-decoration: none;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+
+    .auth-form .content .form .links a:nth-child(2) {
+      color: #911507;
+      font-weight: 600;
+    }
+
+    .auth-form .content .form .inputBox button[type="button"] {
+      padding: 12px;
+      background: #911507;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.2em;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .auth-form .content .form .inputBox button[type="button"]:hover {
+      background: #7a1005;
+    }
+
+    input[type="button"]:active {
+      opacity: 0.6;
+    }
+
+    /* Toggle between forms */
+    #login-form {
+      display: block;
+    }
+
+    #signup-form {
+      display: none;
+    }
+
+    /* Media queries for responsive design */
+    @media (max-width: 1200px) {
+      section span {
+        width: calc(8vw - 2px);
+        height: calc(8vw - 2px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      section span {
+        width: calc(10vw - 2px);
+        height: calc(10vw - 2px);
+      }
+
+      .auth-form {
+        padding: 40px;
+      }
+
+      .auth-form .content {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section span {
+        width: calc(15vw - 2px);
+        height: calc(15vw - 2px);
+      }
+
+      .auth-form {
+        padding: 30px;
+      }
+
+      .auth-form .content h2 {
+        font-size: 1.7em;
+      }
+
+      .auth-form .content .form {
+        gap: 30px;
+      }
+
+      .auth-form .content .form .inputBox input {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      section span {
+        width: calc(20vw - 2px);
+        height: calc(20vw - 2px);
+      }
+
+      .auth-container {
+        width: 17rem;
+      }
+
+      .auth-form .content h2 {
+        font-size: 1.5em;
+      }
+
+      .auth-form .content .form .inputBox input {
+        padding: 20px 10px 5px;
+        font-size: 0.9em;
+      }
+
+      .auth-form .content .form .inputBox i {
+        padding: 12px 10px;
+        font-size: 0.9em;
+      }
+
+      .auth-form .content .form .inputBox button[type="button"] {
+        padding: 10px;
+        font-size: 1.1em;
+      }
+    }
+
+    /* For very small devices (e.g., iPhone 5/SE) */
+    @media (max-width: 320px) {
+      .auth-form .content h2 {
+        font-size: 1.3em;
+      }
+
+      .auth-form .content .form .links a {
+        font-size: 0.8em;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<section>
-    <div class="signin">
-      <div class="content">
-        <h2>Kaku Food</h2>
-        <div class="form">
-          <div class="inputBox">
-            <input type="text" required>
-            <i>Username</i>
+  <section>
+    <div class="auth-container">
+      <!-- Login Form -->
+      <div id="login-form" class="auth-form">
+        <div class="content">
+          <h2>Kaku Food</h2>
+          <div class="form">
+            <div class="inputBox">
+              <input type="text" required>
+              <i>Email</i>
+            </div>
+            <div class="inputBox">
+              <input type="password" id="login-password" required>
+              <i>Password</i>
+              <span class="toggle-password" onclick="togglePassword('login-password', this)">👁️</span>
+            </div>
+
+            <div class="links">
+              <a href="#">Lupa Password</a>
+              <a onclick="toggleForm('signup-form', 'login-form')">Daftar Akun</a>
+            </div>
+            <div class="inputBox">
+              <button type="button" value="Login" onclick="window.location.href='home.html'">Login</button>
+            </div>
           </div>
-          <div class="inputBox">
-            <input type="password" required>
-            <i>Password</i>
-          </div>
-          <div class="links">
-            <a href="#">Forgot Password</a>
-            <a href="#">Signup</a>
-          </div>
-          <div class="inputBox">
-            <button type="submit" value="Login" onclick="window.location.href='home.html'">Login</button>
+        </div>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signup-form" class="auth-form">
+        <div class="content">
+          <h2>Daftar Akun</h2>
+          <div class="form">
+            <div class="inputBox">
+              <input type="text" required>
+              <i>Nama Lengkap</i>
+            </div>
+            <div class="inputBox">
+              <input type="email" required>
+              <i>Email</i>
+            </div>
+            <div class="inputBox">
+              <input type="password" id="signup-password" required>
+              <i>Password</i>
+              <span class="toggle-password" onclick="togglePassword('signup-password', this)">👁️</span>
+            </div>
+            <div class="inputBox">
+              <input type="password" id="signup-confirm" required>
+              <i>Konfirmasi Password</i>
+              <span class="toggle-password" onclick="togglePassword('signup-confirm', this)">👁️</span>
+            </div>
+
+            <div class="links">
+              <a>Sudah punya akun?</a>
+              <a onclick="toggleForm('login-form', 'signup-form')">Login</a>
+            </div>
+            <div class="inputBox">
+              <button type="button">Daftar</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-<!-- partial -->
-  
+
+  <script>
+    function toggleForm(showId, hideId) {
+      document.getElementById(showId).style.display = 'block';
+      document.getElementById(hideId).style.display = 'none';
+    }
+
+    function togglePassword(inputId, el) {
+      const input = document.getElementById(inputId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        el.textContent = '🙈';
+      } else {
+        input.type = 'password';
+        el.textContent = '👁️';
+      }
+    }
+
+    // Validasi email saat focus ke input password
+    document.addEventListener('DOMContentLoaded', function() {
+      // Untuk form login
+      const loginEmailInput = document.querySelector('#login-form input[type="text"]');
+      const loginPasswordInput = document.getElementById('login-password');
+      
+      // Untuk form signup
+      const signupEmailInput = document.querySelector('#signup-form input[type="email"]');
+      const signupPasswordInput = document.getElementById('signup-password');
+      
+      // Fungsi validasi email
+      function validateEmail(emailInput, passwordInput) {
+        passwordInput.addEventListener('focus', function() {
+          const emailValue = emailInput.value.trim();
+          if (emailValue && !emailValue.includes('@')) {
+            alert('Harap masukkan alamat email yang valid misal:(emailmu@gmail.com)');
+            emailInput.focus();
+          }
+        });
+      }
+      
+      // Terapkan validasi untuk kedua form
+      if (loginEmailInput && loginPasswordInput) {
+        validateEmail(loginEmailInput, loginPasswordInput);
+      }
+      
+      if (signupEmailInput && signupPasswordInput) {
+        validateEmail(signupEmailInput, signupPasswordInput);
+      }
+    });
+  </script
 </body>
+
 </html>

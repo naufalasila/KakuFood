@@ -202,18 +202,18 @@
  }
 
  .slide-1 {
-     background: linear-gradient(rgba(203, 203, 203, 0), rgba(211, 54, 54, 0.488)), url('../image/bacground.jpg') no-repeat center center/cover;
+   background: linear-gradient(rgba(203, 203, 203, 0), rgba(255, 255, 255, 0)), url('../image/bacground.jpg') no-repeat center center/cover;
  }
 
  .slide-2 {
-     background-color: #e74c3c;
+     background: linear-gradient(rgba(203, 203, 203, 0), rgba(255, 255, 255, 0)), url('../image/Group\ 129.jpg') no-repeat center center/cover;
  }
 
  .slide-3 {
-     background-color: #2ecc71;
+    background: linear-gradient(rgba(203, 203, 203, 0), rgba(255, 255, 255, 0)), url('../image/Group\ 127.jpg') no-repeat center center/cover;
  }
  .slide-4 {
-     background-color: #382ecc;
+     background: linear-gradient(rgba(203, 203, 203, 0), rgba(255, 255, 255, 0)), url('../image/Group\ 128.jpg') no-repeat center center/cover;
  }
 
  .slider-controls {

@@ -1,5 +1,4 @@
-/* Font import and global reset */
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
     /* Global reset */
     * {
@@ -67,23 +66,27 @@
       transition: 0s;
     }
 
-    /* Sign-in form styles */
-    .signin {
+    /* Auth form container */
+    .auth-container {
       position: absolute;
       width: 65%;
       max-width: 400px;
       background: #ffffff;
       z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
       border-radius: 4px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
       margin: 20px;
+      overflow: hidden;
     }
 
-    .signin .content {
+    /* Form styles */
+    .auth-form {
+      padding: 30px;
+      width: 100%;
+      transition: all 0.5s ease;
+    }
+
+    .auth-form .content {
       position: relative;
       width: 100%;
       display: flex;
@@ -93,26 +96,26 @@
       gap: 30px;
     }
 
-    .signin .content h2 {
+    .auth-form .content h2 {
       font-size: 2em;
       color:#911507;
       text-transform: uppercase;
       text-align: center;
     }
 
-    .signin .content .form {
+    .auth-form .content .form {
       width: 100%;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    .signin .content .form .inputBox {
+    .auth-form .content .form .inputBox {
       position: relative;
       width: 100%;
     }
 
-    .signin .content .form .inputBox input {
+    .auth-form .content .form .inputBox input {
       position: relative;
       width: 100%;
       background: #911507;
@@ -125,7 +128,7 @@
       font-size: 1em;
     }
 
-    .signin .content .form .inputBox i {
+    .auth-form .content .form .inputBox i {
       position: absolute;
       left: 0;
       padding: 15px 10px;
@@ -135,14 +138,14 @@
       pointer-events: none;
     }
 
-    .signin .content .form .inputBox input:focus ~ i,
-    .signin .content .form .inputBox input:valid ~ i {
+    .auth-form .content .form .inputBox input:focus ~ i,
+    .auth-form .content .form .inputBox input:valid ~ i {
       transform: translateY(-7.5px);
       font-size: 0.8em;
       color: #fff;
     }
 
-    .signin .content .form .links {
+    .auth-form .content .form .links {
       position: relative;
       width: 100%;
       display: flex;
@@ -151,18 +154,19 @@
       gap: 10px;
     }
 
-    .signin .content .form .links a {
+    .auth-form .content .form .links a {
       color: #911507;
       text-decoration: none;
       font-size: 0.9em;
+      cursor: pointer;
     }
 
-    .signin .content .form .links a:nth-child(2) {
+    .auth-form .content .form .links a:nth-child(2) {
       color: #911507;
       font-weight: 600;
     }
 
-    .signin .content .form .inputBox button[type="submit"] {
+    .auth-form .content .form .inputBox button[type="submit"] {
       padding: 12px;
       background:#911507;
       color: #ffffff;
@@ -176,12 +180,21 @@
       transition: all 0.3s ease;
     }
 
-    .signin .content .form .inputBox button[type="submit"]:hover {
+    .auth-form .content .form .inputBox button[type="submit"]:hover {
       background: #7a1005;
     }
 
     input[type="submit"]:active {
       opacity: 0.6;
+    }
+
+    /* Toggle between forms */
+    #login-form {
+      display: block;
+    }
+
+    #signup-form {
+      display: none;
     }
 
     /* Media queries for responsive design */
@@ -198,11 +211,11 @@
         height: calc(10vw - 2px);
       }
       
-      .signin {
+      .auth-form {
         padding: 40px;
       }
       
-      .signin .content {
+      .auth-form .content {
         gap: 30px;
       }
     }
@@ -213,19 +226,19 @@
         height: calc(15vw - 2px);
       }
       
-      .signin {
+      .auth-form {
         padding: 30px;
       }
       
-      .signin .content h2 {
+      .auth-form .content h2 {
         font-size: 1.7em;
       }
       
-      .signin .content .form {
+      .auth-form .content .form {
         gap: 30px;
       }
       
-      .signin .content .form .inputBox input {
+      .auth-form .content .form .inputBox input {
         padding: 20px;
       }
     }
@@ -236,27 +249,25 @@
         height: calc(20vw - 2px);
       }
       
-      .signin {
-        /* padding: 40px; */
-        height: 20rem;
+      .auth-container {
         width: 17rem;
       }
       
-      .signin .content h2 {
+      .auth-form .content h2 {
         font-size: 1.5em;
       }
       
-      .signin .content .form .inputBox input {
+      .auth-form .content .form .inputBox input {
         padding: 20px 10px 5px;
         font-size: 0.9em;
       }
       
-      .signin .content .form .inputBox i {
+      .auth-form .content .form .inputBox i {
         padding: 12px 10px;
         font-size: 0.9em;
       }
       
-      .signin .content .form .inputBox button[type="submit"] {
+      .auth-form .content .form .inputBox button[type="submit"] {
         padding: 10px;
         font-size: 1.1em;
       }
@@ -264,11 +275,11 @@
 
     /* For very small devices (e.g., iPhone 5/SE) */
     @media (max-width: 320px) {
-      .signin .content h2 {
+      .auth-form .content h2 {
         font-size: 1.3em;
       }
       
-      .signin .content .form .links a {
+      .auth-form .content .form .links a {
         font-size: 0.8em;
       }
     }
